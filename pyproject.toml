@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "design-patterns"
+version = "0.1.0"
+description = "Implementing design patterns from \"Head First Design Patterns: A brain-friendly g guide\""
+authors = ["balancy <balancy@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
