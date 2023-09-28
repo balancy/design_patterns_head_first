@@ -10,8 +10,8 @@ def test_behaviour(duck: Duck) -> None:
 
 
 def run() -> None:
-    ducks = (MaillardDuck, RubberDuck, DecoyDuck)
-    for duck in ducks:
+    duck_types = (MaillardDuck, RubberDuck, DecoyDuck)
+    for duck in duck_types:
         test_behaviour(duck())
 
 
