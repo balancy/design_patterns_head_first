@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class FlyBehavior(ABC):
     @abstractmethod
     def perform_fly(self) -> None:
-        pass
+        ...
 
 
 class FlyWithWings(FlyBehavior):

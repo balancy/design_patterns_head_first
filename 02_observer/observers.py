@@ -1,14 +1,24 @@
-from .interfaces import DisplayElement, Observer
+from abc import ABC, abstractmethod
+
+
+class Observer(ABC):
+    @abstractmethod
+    def update(self, temp: float, humidity: float, pressure: float) -> None:
+        ...
+
+    def __repr__(self) -> str:
+        return self.__class__.__name__
+
+
+class DisplayElement(ABC):
+    @abstractmethod
+    def display(self) -> None:
+        ...
 
 
 class ConditionsDisplay(Observer, DisplayElement):
-    def update(
-        self,
-        temperature: float,
-        humidity: float,
-        pressure: float,
-    ) -> None:
-        self._temperature = temperature
+    def update(self, temp: float, humidity: float, pressure: float) -> None:
+        self._temperature = temp
         self._humidity = humidity
         self.display()
 
@@ -20,13 +30,8 @@ class ConditionsDisplay(Observer, DisplayElement):
 
 
 class StatisticsDisplay(Observer, DisplayElement):
-    def update(
-        self,
-        temperature: float,
-        humidity: float,
-        pressure: float,
-    ) -> None:
-        self._temperature = temperature
+    def update(self, temp: float, humidity: float, pressure: float) -> None:
+        self._temperature = temp
         self._humidity = humidity
         self._pressure = pressure
         self.display()

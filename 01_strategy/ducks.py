@@ -11,7 +11,7 @@ class Duck(ABC):
 
     @abstractmethod
     def display(self) -> None:
-        pass
+        ...
 
     def swim(self) -> None:
         print('All ducks float, even decoys!')

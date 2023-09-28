@@ -1,6 +1,5 @@
-from .interfaces import Observer, Subject
-from .observers import ConditionsDisplay, StatisticsDisplay
-from .subjects import WeatherData
+from .observers import ConditionsDisplay, Observer, StatisticsDisplay
+from .subjects import Subject, WeatherData
 
 
 def run() -> None:
