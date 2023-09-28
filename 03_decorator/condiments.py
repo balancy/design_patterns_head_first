@@ -1,42 +1,35 @@
-from abc import abstractmethod
+from typing import cast
 
 from .beverages import Beverage
 
 
 class CondimentDecorator(Beverage):
-    @abstractmethod
+    def __init__(self, beverage: Beverage) -> None:
+        self._beverage = beverage
+
     def get_description(self) -> str:
-        ...
+        return self._beverage.get_description() + ', ' + self.__class__.__name__
 
 
 class Mocha(CondimentDecorator):
-    def __init__(self, beverage: Beverage) -> None:
-        self._beverage = beverage
+    _cost = 0.10
 
-    def get_description(self) -> str:
-        return self._beverage.get_description() + ', Mocha'
-
+    @property
     def cost(self) -> float:
-        return 0.10 + self._beverage.cost()
+        return self._cost + cast(float, self._beverage.cost)
 
 
 class Chocolate(CondimentDecorator):
-    def __init__(self, beverage: Beverage) -> None:
-        self._beverage = beverage
+    _cost = 0.20
 
-    def get_description(self) -> str:
-        return self._beverage.get_description() + ', Chocolate'
-
+    @property
     def cost(self) -> float:
-        return 0.20 + self._beverage.cost()
+        return self._cost + cast(float, self._beverage.cost)
 
 
 class Soy(CondimentDecorator):
-    def __init__(self, beverage: Beverage) -> None:
-        self._beverage = beverage
+    _cost = 0.15
 
-    def get_description(self) -> str:
-        return self._beverage.get_description() + ', Soy'
-
+    @property
     def cost(self) -> float:
-        return 0.15 + self._beverage.cost()
+        return self._cost + cast(float, self._beverage.cost)
