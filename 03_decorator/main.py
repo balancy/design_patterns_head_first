@@ -3,8 +3,8 @@ from .condiments import Chocolate, Mocha, Soy
 
 
 def run() -> None:
-    espresson: Beverage = Espresso()
-    print(f'{espresson.get_description()} ${espresson.cost}')
+    espresso: Beverage = Espresso()
+    print(f'{espresso.get_description()} ${espresso.cost}')
 
     dark_roast: Beverage = DarkRoast()
     for condiment in (Mocha, Soy, Chocolate, Mocha):
