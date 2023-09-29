@@ -1,52 +1,33 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class Beverage(ABC):
-    def __init__(self) -> None:
-        self._description: str = 'Unknown Beverage'
+    _description: str
+    _cost: float
 
     def get_description(self) -> str:
         return self._description
 
-    @abstractmethod
+    @property
     def cost(self) -> float:
-        ...
+        return self._cost
 
 
 class Espresso(Beverage):
-    def __init__(self) -> None:
-        self._description: str = 'Espresso'
-        self._cost: float = 1.99
-
-    @property
-    def cost(self) -> float:
-        return self._cost
+    _description: str = 'Espresso'
+    _cost: float = 1.99
 
 
 class HouseBlend(Beverage):
-    def __init__(self) -> None:
-        self._description: str = 'House Blend Coffee'
-        self._cost: float = 0.89
-
-    @property
-    def cost(self) -> float:
-        return self._cost
+    _description: str = 'House Blend Coffee'
+    _cost: float = 0.89
 
 
 class DarkRoast(Beverage):
-    def __init__(self) -> None:
-        self._description: str = 'Dark Roast Coffee'
-        self._cost: float = 0.99
-
-    @property
-    def cost(self) -> float:
-        return self._cost
+    _description: str = 'Dark Roast Coffee'
+    _cost: float = 0.99
 
 
 class Decaffeinated(Beverage):
-    def __init__(self) -> None:
-        self._description: str = 'Decaffeinated Coffee'
-        self._cost: float = 1.05
-
-    def cost(self) -> float:
-        return self._cost
+    _description: str = 'Decaffeinated Coffee'
+    _cost: float = 1.05
