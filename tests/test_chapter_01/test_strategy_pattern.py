@@ -1,3 +1,5 @@
+"""Module for testing pattern "Strategy"."""
+
 import pytest
 
 from patterns.chapter_01_strategy.ducks import (
@@ -6,7 +8,7 @@ from patterns.chapter_01_strategy.ducks import (
     MaillardDuck,
     RubberDuck,
 )
-from patterns.chapter_01_strategy.main import show_duck_behaviour
+from patterns.chapter_01_strategy.main import print_duck_behaviour
 
 
 @pytest.mark.parametrize(
@@ -18,6 +20,8 @@ from patterns.chapter_01_strategy.main import show_duck_behaviour
     ],
 )
 def test_pattern_as_black_box(capsys, duck: Duck, produced_sound: str) -> None:
-    show_duck_behaviour(duck)
+    """Test pattern as black box."""
+    print_duck_behaviour(duck)
     captured = capsys.readouterr()
+
     assert produced_sound in captured.out

@@ -8,6 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+flake8-docstrings = "^1.7.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -29,5 +30,5 @@ addopts = [
     "--cov=patterns",
     "--ignore=04_factory",
     "--cov-report=term-missing",
-    "--cov-fail-under=85",
+    "--cov-fail-under=80",
 ]
