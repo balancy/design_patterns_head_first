@@ -1,7 +1,7 @@
 from .ducks import DecoyDuck, Duck, MaillardDuck, RubberDuck
 
 
-def test_behaviour(duck: Duck) -> None:
+def show_duck_behaviour(duck: Duck) -> None:
     duck.display()
     duck.swim()
     duck.perform_fly()
@@ -9,11 +9,10 @@ def test_behaviour(duck: Duck) -> None:
     print()
 
 
-def run() -> None:
-    duck_types = (MaillardDuck, RubberDuck, DecoyDuck)
-    for duck in duck_types:
-        test_behaviour(duck())
+def test_drive() -> None:
+    for duck in (MaillardDuck(), RubberDuck(), DecoyDuck()):
+        show_duck_behaviour(duck)
 
 
 if __name__ == '__main__':
-    run()
+    test_drive()
