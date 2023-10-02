@@ -1,4 +1,4 @@
-"""Abstract class for duck and three concrete implementations."""
+"""Abstract class for duck and 3 child classes."""
 
 from abc import ABC, abstractmethod
 

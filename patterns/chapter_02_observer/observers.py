@@ -1,4 +1,4 @@
-"""Abstract class for observer and two concrete implementations."""
+"""Abstract class for observer and two child classes."""
 
 from abc import ABC, abstractmethod
 

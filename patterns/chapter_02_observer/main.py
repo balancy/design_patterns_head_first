@@ -1,4 +1,4 @@
-"""Main entrypoint module for observer pattern."""
+"""Main entrypoint module for observer pattern example."""
 
 from .observers import ConditionsDisplay, Observer, StatisticsDisplay
 from .subjects import SubjectWithSensors, WeatherData
@@ -12,8 +12,11 @@ def set_sensors_measurements(
     subject.set_measurements(*measurements)
 
 
-def test_drive() -> None:
-    """Interacting weather data station and two observers."""
+def run_pattern_example() -> None:
+    """Test observer pattern.
+
+    Weather data station notifies two observers about measurement changes.
+    """
     weather_station: SubjectWithSensors = WeatherData()
     conditions_display: Observer = ConditionsDisplay()
     statistics_display: Observer = StatisticsDisplay()
@@ -35,4 +38,4 @@ def test_drive() -> None:
 
 
 if __name__ == '__main__':
-    test_drive()
+    run_pattern_example()

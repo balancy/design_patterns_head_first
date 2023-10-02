@@ -1,8 +1,8 @@
-"""Abstract class for subject and one concrete implementation.
+"""Abstract class for subject and one child class.
 
 Subject class aim is to handle observers subscription and notify them about
-state changement. WeatherData class is concrete implementation of Subject that
-notifies its observers about sensors measures.
+state changement. WeatherData class is child class - implementation of Subject
+that notifies its observers about sensors measures.
 """
 
 from abc import ABC, abstractmethod

@@ -1,4 +1,4 @@
-"""Abstract class for fly behaviour and two concrete implementations."""
+"""Abstract class for fly behaviour and 2 child classes."""
 
 from abc import ABC, abstractmethod
 

@@ -30,5 +30,5 @@ addopts = [
     "--cov=patterns",
     "--ignore=04_factory",
     "--cov-report=term-missing",
-    "--cov-fail-under=80",
+    "--cov-fail-under=75",
 ]

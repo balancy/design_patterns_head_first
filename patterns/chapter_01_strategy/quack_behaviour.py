@@ -1,4 +1,4 @@
-"""Abstract class for quack behaviour and three concrete implementations."""
+"""Abstract class for quack behaviour and 3 child classes."""
 
 from abc import ABC, abstractmethod
 
