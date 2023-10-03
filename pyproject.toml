@@ -28,12 +28,13 @@ addopts = [
     "--strict-markers",
     "--tb=short",
     "--cov=patterns",
-    "--ignore=04_factory",
 ]
 
 [tool.coverage.run]
 omit = [
     "*/main.py",
+    "patterns/chapter_04_factory_method/*",
+    "patterns/chapter_04_abstract_factory/*",
 ]
 parallel = true
 
