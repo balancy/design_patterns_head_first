@@ -24,11 +24,5 @@ jobs:
       - name: Install dependencies
         run: poetry install --with dev
 
-      - name: flake8 lint
-        run: poetry run flake8
-
-      - name: mypy type check
-        run: poetry run mypy .
-
-      - name: Test with pytest
-        run: poetry run pytest
+      - name: Check types, lint, and test
+        run: make check
