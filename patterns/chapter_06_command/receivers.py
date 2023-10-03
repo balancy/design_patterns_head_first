@@ -21,37 +21,56 @@ class Receiver(ABC):
         return self.__class__.__name__
 
 
-class KitchenLight(Receiver):
+class Device(Receiver):
+    """Device as Receiver class implementation."""
+
+    def __init__(self) -> None:
+        """Initialize with the default status."""
+        self._is_on: bool = False
+
+    @property
+    def is_on(self) -> bool:
+        """Return the status of the device."""
+        return self._is_on
+
+
+class KitchenLight(Device):
     """Kitchen light as receiver class implementation."""
 
     def on(self) -> None:
         """Turn the kitchen light on."""
+        self._is_on = True
         print('Kitchen light is turned on.')
 
     def off(self) -> None:
         """Turn the kitchen light off."""
+        self._is_on = False
         print('Kitchen light is turned off.')
 
 
-class BedroomLight(Receiver):
+class BedroomLight(Device):
     """Bedroom light as receiver class implementation."""
 
     def on(self) -> None:
         """Turn the bedroom light on."""
+        self._is_on = True
         print('Bedroom light is turned on.')
 
     def off(self) -> None:
         """Turn the bedroom light off."""
+        self._is_on = False
         print('Bedroom light is turned off.')
 
 
-class TV(Receiver):
+class TV(Device):
     """TV as receiver class implementation."""
 
     def on(self) -> None:
         """Turn the TV on."""
+        self._is_on = True
         print('TV is turned on.')
 
     def off(self) -> None:
         """Turn the TV off."""
+        self._is_on = False
         print('TV is turned off.')

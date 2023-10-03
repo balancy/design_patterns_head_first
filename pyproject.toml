@@ -33,7 +33,6 @@ addopts = [
 [tool.coverage.run]
 omit = [
     "*/main.py",
-    "patterns/chapter_06_command/*",
 ]
 parallel = true
 
