@@ -1,8 +1,13 @@
+"""Home theater (facade to handle all devices) module."""
+
 from .devices import Amplifier, DvdPlayer, Light, Popper, Projector, Screen
 
 
 class HomeTheaterFacade:
+    """Home theater facade class."""
+
     def __init__(self) -> None:
+        """Initialize home theater facade."""
         self._amp: Amplifier = Amplifier()
         self._player: DvdPlayer = DvdPlayer()
         self._light: Light = Light()
@@ -11,6 +16,10 @@ class HomeTheaterFacade:
         self._screen: Screen = Screen()
 
     def watch_movie(self) -> None:
+        """Watch movie method.
+
+        Incapsulate commands for all devices to watch a movie.
+        """
         print('Get ready to watch a movie...')
         print()
 
@@ -37,6 +46,10 @@ class HomeTheaterFacade:
         print('Enjoy the movie!')
 
     def end_movie(self) -> None:
+        """End movie method.
+
+        Incapsulate commands for all devices to end watching a movie.
+        """
         print()
         print('Shutting movie theater down...')
         print()
