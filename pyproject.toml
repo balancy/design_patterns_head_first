@@ -39,3 +39,12 @@ parallel = true
 [tool.coverage.report]
 fail_under = 80
 show_missing = true
+
+[tool.mypy]
+exclude = [
+    "05_singleton/*",
+    "06_command/*",
+    "07_adapter/*",
+    "08_facade/*",
+    "09_template_method/*",
+]

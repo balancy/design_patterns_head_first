@@ -25,10 +25,10 @@ jobs:
         run: poetry install --with dev
 
       - name: flake8 lint
-        run: poetry run flake8 patterns
+        run: poetry run flake8
 
       - name: mypy type check
-        run: poetry run mypy patterns
+        run: poetry run mypy .
 
       - name: Test with pytest
         run: poetry run pytest
