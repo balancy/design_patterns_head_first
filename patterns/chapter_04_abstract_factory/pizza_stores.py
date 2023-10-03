@@ -38,13 +38,15 @@ class NYPizzaStore(PizzaStore):
     def _create_pizza(self, item: str) -> Pizza:
         pizza: Pizza
         ingredient_factory = NYPizzaIngredientFactory()
+        prefix = 'New York Style'
 
         match item:
             case 'cheese':
                 pizza = CheesePizza(ingredient_factory)
-                pizza.name = 'New York Style Cheese Pizza'
+                pizza.name = f'{prefix} Cheese Pizza'
             case 'clam':
                 pizza = ClamPizza(ingredient_factory)
+                pizza.name = f'{prefix} Clam Pizza'
             # and so on
             case _:
                 raise ValueError(f'Unknown pizza type {item}')

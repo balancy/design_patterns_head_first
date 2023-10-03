@@ -15,9 +15,9 @@ pytestmark = pytest.mark.parametrize(
 
 
 def test_factory_method(capsys, store: PizzaStore) -> None:
-    """Test fdactory method patterns.
+    """Test factory method patterns.
 
-    Pizza name should appear in output when we order pizza via factory method.
+    Pizza name should appear in output when ordering pizza via factory method.
     """
     pizza = store.order_pizza('cheese')
     captured = capsys.readouterr()
