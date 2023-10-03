@@ -1,11 +1,13 @@
 """Basic beverage class and 4 child classes."""
 
+from decimal import Decimal
+
 
 class Beverage:
     """Basic class for beverage."""
 
     _description: str
-    _cost: float
+    _cost: Decimal
 
     @property
     def description(self) -> str:
@@ -13,7 +15,7 @@ class Beverage:
         return self._description
 
     @property
-    def cost(self) -> float:
+    def cost(self) -> Decimal:
         """Get beverage cost."""
         return self._cost
 
@@ -21,26 +23,26 @@ class Beverage:
 class Espresso(Beverage):
     """Espresso beverage."""
 
-    _description: str = 'Espresso'
-    _cost: float = 1.99
+    _description = 'Espresso'
+    _cost = Decimal('1.99')
 
 
 class HouseBlend(Beverage):
     """House Blend beverage."""
 
-    _description: str = 'House Blend Coffee'
-    _cost: float = 0.89
+    _description = 'House Blend Coffee'
+    _cost = Decimal('0.89')
 
 
 class DarkRoast(Beverage):
     """Dark Roast beverage."""
 
-    _description: str = 'Dark Roast Coffee'
-    _cost: float = 0.99
+    _description = 'Dark Roast Coffee'
+    _cost = Decimal('0.99')
 
 
 class Decaffeinated(Beverage):
     """Decaffeinated beverage."""
 
-    _description: str = 'Decaffeinated Coffee'
-    _cost: float = 1.05
+    _description = 'Decaffeinated Coffee'
+    _cost = Decimal('1.05')

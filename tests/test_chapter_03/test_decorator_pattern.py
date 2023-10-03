@@ -1,6 +1,5 @@
 """Module for testing pattern "Decorator"."""
 
-from copy import copy
 
 import pytest
 
@@ -17,8 +16,7 @@ from patterns.chapter_03_decorator.condiments import (
     Soy,
 )
 
-
-@pytest.mark.parametrize(
+pytestmark = pytest.mark.parametrize(
     ('beverage', 'condiments'),
     [
         (DarkRoast(), [Mocha]),
@@ -27,16 +25,40 @@ from patterns.chapter_03_decorator.condiments import (
         (HouseBlend(), [Soy, Chocolate, Mocha]),
     ],
 )
-def test_total_cost(
+
+
+def add_condiments_to_beverage(
+    beverage: Beverage,
+    condiments: list[type[CondimentDecorator]],
+) -> Beverage:
+    """Add condiments to beverage."""
+    for condiment in condiments:
+        beverage = condiment(beverage)
+
+    return beverage
+
+
+def test_total_cost_is_correct(
     beverage: Beverage,
     condiments: list[type[CondimentDecorator]],
 ) -> None:
-    """Test pattern as black box."""
-    beverage_with_condiments = copy(beverage)
-    for condiment in condiments:
-        beverage_with_condiments = condiment(beverage_with_condiments)
+    """Test if total calculated cost of beverage with condiments is correct."""
+    beverage_with_condiments = add_condiments_to_beverage(beverage, condiments)
 
-    condiments_cost = round(
-        sum(cond.get_condiment_cost() for cond in condiments), 2
-    )
+    condiments_cost = sum(cond.get_condiment_cost() for cond in condiments)
+
     assert (condiments_cost + beverage.cost) == beverage_with_condiments.cost
+
+
+def test_full_description_is_correct(
+    beverage: Beverage,
+    condiments: list[type[CondimentDecorator]],
+) -> None:
+    """Test if full description of beverage with condiments is correct."""
+    beverage_with_condiments = add_condiments_to_beverage(beverage, condiments)
+
+    for condiment in condiments:
+        assert (
+            condiment.get_condiment_description()
+            in beverage_with_condiments.description
+        )

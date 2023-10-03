@@ -29,6 +29,14 @@ addopts = [
     "--tb=short",
     "--cov=patterns",
     "--ignore=04_factory",
-    "--cov-report=term-missing",
-    "--cov-fail-under=75",
 ]
+
+[tool.coverage.run]
+omit = [
+    "*/main.py",
+]
+parallel = true
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
