@@ -33,6 +33,7 @@ addopts = [
 [tool.coverage.run]
 omit = [
     "*/main.py",
+    "patterns/chapter_06_command/*",
 ]
 parallel = true
 
@@ -42,7 +43,6 @@ show_missing = true
 
 [tool.mypy]
 exclude = [
-    "06_command/*",
     "07_adapter/*",
     "08_facade/*",
     "09_template_method/*",
