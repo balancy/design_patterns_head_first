@@ -29,6 +29,7 @@ class HomeTheaterFacade:
         self._light.turn_on()
         self._light.dim(10)
 
+        self._screen.turn_on()
         self._screen.down()
 
         self._projector.turn_on()
@@ -56,9 +57,21 @@ class HomeTheaterFacade:
 
         self._popper.turn_off()
         self._light.turn_off()
-        self._screen.up()
+        self._screen.turn_off()
         self._projector.turn_off()
         self._amp.turn_off()
         self._player.turn_off()
 
         print('Movie theater is closed')
+
+    @property
+    def handled_devices(self) -> tuple:
+        """Get list of handled devices."""
+        return (
+            self._amp,
+            self._player,
+            self._light,
+            self._popper,
+            self._projector,
+            self._screen,
+        )

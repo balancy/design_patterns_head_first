@@ -1,39 +1,47 @@
 """Devices module."""
 
 
-class Popper:
-    """Popper device class."""
+class Device:
+    """Device base class."""
+
+    def __init__(self) -> None:
+        """Initialize device."""
+        self._is_on: bool = False
+        print(f'{self.__class__.__name__} is on')
 
     def turn_on(self) -> None:
-        """Turn on popper."""
-        print('Pop-corn: popping')
+        """Turn on device."""
+        self._is_on = True
+        print(f'{self.__class__.__name__} is on')
+
+    def turn_off(self) -> None:
+        """Turn off device."""
+        self._is_on = False
+        print(f'{self.__class__.__name__} is off')
+
+    @property
+    def is_on(self) -> bool:
+        """Check if device is on."""
+        return self._is_on
+
+
+class Popper(Device):
+    """Popper device class."""
 
     def pop(self) -> None:
         """Pop pop-corn."""
         print('Pop-corn: poped')
 
-    def turn_off(self) -> None:
-        """Turn off popper."""
-        print('Pop-corn: off')
 
-
-class Light:
+class Light(Device):
     """Light device class."""
-
-    def turn_on(self) -> None:
-        """Turn on light."""
-        print('Light: turned on')
 
     def dim(self, value: int) -> None:
         """Dim light."""
         print(f'Light: dimmed to {value}')
 
-    def turn_off(self) -> None:
-        """Turn off light."""
-        print('Light: turned off')
 
-
-class Screen:
+class Screen(Device):
     """Screen device class."""
 
     def down(self) -> None:
@@ -45,12 +53,8 @@ class Screen:
         print('Screen: is up')
 
 
-class Projector:
+class Projector(Device):
     """Projector device class."""
-
-    def turn_on(self) -> None:
-        """Turn on projector."""
-        print('Projector: turned on')
 
     def set_input(self, input_value: str) -> None:
         """Set input device for projector."""
@@ -60,17 +64,9 @@ class Projector:
         """Set wide screen mode for projector."""
         print('Projector: switched to wide screen mode')
 
-    def turn_off(self) -> None:
-        """Turn off projector."""
-        print('Projector: turned off')
 
-
-class Amplifier:
+class Amplifier(Device):
     """Amplifier device class."""
-
-    def turn_on(self) -> None:
-        """Turn on amplifier."""
-        print('Amplifier: turned on')
 
     def set_dvd(self) -> None:
         """Set DVD for amplifier."""
@@ -84,22 +80,10 @@ class Amplifier:
         """Set volume for amplifier."""
         print(f'Amplifier: volume is set to {value}')
 
-    def turn_off(self) -> None:
-        """Turn off amplifier."""
-        print('Amplifier: turned off')
 
-
-class DvdPlayer:
+class DvdPlayer(Device):
     """DVD player device class."""
-
-    def turn_on(self) -> None:
-        """Turn on DVD player."""
-        print('DVD: turned on')
 
     def play(self, movie: str) -> None:
         """Play movie on DVD player."""
         print(f'DVD: playing {movie}')
-
-    def turn_off(self) -> None:
-        """Turn off DVD player."""
-        print('DVD: turned off')

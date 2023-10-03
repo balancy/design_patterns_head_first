@@ -33,7 +33,6 @@ addopts = [
 [tool.coverage.run]
 omit = [
     "*/main.py",
-    "*/chapter_07_facade/*"
 ]
 parallel = true
 
