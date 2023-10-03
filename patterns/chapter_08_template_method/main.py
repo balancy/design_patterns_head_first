@@ -1,7 +1,15 @@
+"""Main entrypoint for the Template method pattern example."""
+
+
 from .beverages import CaffeineBeverage, Coffee, Tea
 
 
-def run() -> None:
+def run_pattern_example() -> None:
+    """Test template method pattern example.
+
+    Two implementation of caffeine beverages show using template of parent
+    class.
+    """
     tea: CaffeineBeverage = Tea()
     coffee: CaffeineBeverage = Coffee()
 
@@ -13,4 +21,4 @@ def run() -> None:
 
 
 if __name__ == "__main__":
-    run()
+    run_pattern_example()
