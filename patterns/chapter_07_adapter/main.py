@@ -1,9 +1,16 @@
+"""Main entrypoint for the Adapter pattern example."""
+
 from .adapters import TurkeyClassAdapter, TurkeyObjectAdapter
 from .ducks import Duck, MallardDuck
 from .turkeys import Turkey, WildTurkey
 
 
-def run() -> None:
+def run_pattern_example() -> None:
+    """Test adapter pattern example.
+
+    Methods of one object sould be translated to methods of another object via
+    adapter.
+    """
     mallard_duck: Duck = MallardDuck()
     wild_turkey: Turkey = WildTurkey()
 
@@ -31,4 +38,4 @@ def run() -> None:
 
 
 if __name__ == '__main__':
-    run()
+    run_pattern_example()
