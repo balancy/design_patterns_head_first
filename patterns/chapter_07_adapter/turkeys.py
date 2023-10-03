@@ -26,10 +26,23 @@ class Turkey(ABC):
 class WildTurkey(Turkey):
     """Wild turkey class implementing abstract turkey class."""
 
+    _sound_produced: str = 'Gobble gobble'
+    _flying_behaviour: str = 'I\'m flying a short distance'
+
     def gobble(self) -> None:
         """Gobble method implementation."""
-        print('Gobble gobble')
+        print(self._sound_produced)
 
     def short_fly(self) -> None:
         """Short fly method implementation."""
-        print('I\'m flying a short distance')
+        print(self._flying_behaviour)
+
+    @property
+    def sound_produced(self) -> str:
+        """Return produced sound."""
+        return self._sound_produced
+
+    @property
+    def flying_behaviour(self) -> str:
+        """Return flying behaviour."""
+        return self._flying_behaviour
