@@ -43,6 +43,10 @@ class CaffeineBeverage(ABC):
         """Pour beverage into cup."""
         print("Pouring into cup")
 
+    def __repr__(self) -> str:
+        """Return isntance representation."""
+        return self.__class__.__name__
+
 
 class Coffee(CaffeineBeverage):
     """Coffee beverage."""
