@@ -2,16 +2,34 @@
 
 from __future__ import annotations
 
+from abc import ABC
+from typing import Any
 
-class Iterator:
-    """Iterator class."""
+
+class Iterator(ABC):
+    """Abstract iterator class."""
+
+    def __iter__(self) -> Iterator:
+        """Return iterator."""
+        return self
+
+    def __next__(self) -> Any:
+        """Return next element (Abstract class).
+
+        All child classes must implement this method.
+        """
+        ...
+
+
+class MenuIterator:
+    """Menu iterator class."""
 
     def __init__(self, collection: list[tuple[str, float]]) -> None:
         """Initialize iterator."""
         self._collection = collection
         self._index = 0
 
-    def __iter__(self) -> Iterator:
+    def __iter__(self) -> MenuIterator:
         """Return iterator."""
         return self
 

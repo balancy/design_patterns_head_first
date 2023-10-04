@@ -2,7 +2,7 @@
 
 from typing import Iterable, cast
 
-from .iterators import Iterator
+from .iterators import MenuIterator
 from .menus import Menu
 
 
@@ -16,11 +16,11 @@ class Waitress:
     def print_all_menus(self) -> None:
         """Print all menus."""
         for menu in self._menus:
-            print(menu.description)
+            print(menu)
             iterator = menu.create_iterator()
             self._print_menu(iterator)
 
-    def _print_menu(self, iterator: Iterator) -> None:
+    def _print_menu(self, iterator: MenuIterator) -> None:
         """Print one menu."""
         for item, price, *_ in iterator:
             print(f'- {cast(str, item)}: {price}')

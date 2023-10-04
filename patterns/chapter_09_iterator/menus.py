@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 
-from .iterators import Iterator
+from .iterators import MenuIterator
 
 
 class Menu(ABC):
@@ -19,7 +19,15 @@ class Menu(ABC):
         ...
 
     @abstractmethod
-    def create_iterator(self) -> Iterator:
+    def set_items(self, items) -> None:
+        """Set all menu items (abstract method).
+
+        All child classes must implement this method.
+        """
+        ...
+
+    @abstractmethod
+    def create_iterator(self) -> MenuIterator:
         """Create iterator for menu items (abstract method).
 
         All child classes must implement this method.
@@ -30,6 +38,14 @@ class Menu(ABC):
     def description(self) -> str:
         """Return menu description."""
         return self._description
+
+    @abstractmethod
+    def __repr__(self) -> str:
+        """Return menu representation.
+
+        All child classes must implement this method.
+        """
+        ...
 
 
 class DinerMenu(Menu):
@@ -48,9 +64,17 @@ class DinerMenu(Menu):
         """Add item to menu."""
         self._menu_items.append(item)
 
-    def create_iterator(self) -> Iterator:
+    def set_items(self, items: list[tuple[str, float]]) -> None:
+        """Set all menu items."""
+        self._menu_items = items
+
+    def create_iterator(self) -> MenuIterator:
         """Create iterator for menu items."""
-        return Iterator(self._menu_items)
+        return MenuIterator(self._menu_items)
+
+    def __repr__(self) -> str:
+        """Return menu representation."""
+        return f'{self._description} with {len(self._menu_items)} items'
 
 
 class PancackeMenu(Menu):
@@ -69,6 +93,14 @@ class PancackeMenu(Menu):
         """Add item to menu."""
         self._menu_items.update(item)
 
-    def create_iterator(self) -> Iterator:
+    def set_items(self, items: dict[str, float]) -> None:
+        """Set all menu items."""
+        self._menu_items = items
+
+    def create_iterator(self) -> MenuIterator:
         """Create iterator for menu items."""
-        return Iterator(list(self._menu_items.items()))
+        return MenuIterator(list(self._menu_items.items()))
+
+    def __repr__(self) -> str:
+        """Return menu representation."""
+        return f'{self._description} with {len(self._menu_items)} items'
