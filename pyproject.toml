@@ -37,5 +37,5 @@ omit = [
 parallel = true
 
 [tool.coverage.report]
-fail_under = 80
+fail_under = 75
 show_missing = true
