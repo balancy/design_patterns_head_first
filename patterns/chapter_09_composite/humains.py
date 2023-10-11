@@ -11,6 +11,10 @@ from abc import ABC, abstractmethod
 class AbstractHumain(ABC):
     """Abstract humain class."""
 
+    def __init__(self, name: str) -> None:
+        """Initialize humain."""
+        self._name = name
+
     @property
     def parent(self) -> AbstractHumain | None:
         """Return parent of humain."""
@@ -36,7 +40,7 @@ class AbstractHumain(ABC):
     @property
     @abstractmethod
     def family_tree(self) -> str:
-        """Return family tree of humain."""
+        """Return family tree of humain for print."""
         pass
 
 
