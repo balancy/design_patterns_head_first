@@ -3,14 +3,14 @@
 
 import pytest
 
-from patterns.chapter_09_composite.humains import AbstractHumain, Child, Humain
+from patterns.chapter_09_composite.humans import AbstractHuman, Child, Human
 
 
 @pytest.mark.parametrize(
     ('parent', 'children', 'expected_names_in_family_tree'),
     [
         (
-            Humain('father'),
+            Human('father'),
             [Child('son'), Child('daughter')],
             ['father', 'son', 'daughter'],
         ),
@@ -18,8 +18,8 @@ from patterns.chapter_09_composite.humains import AbstractHumain, Child, Humain
 )
 def test_all_members_in_family_tree(
     capsys,
-    parent: AbstractHumain,
-    children: list[AbstractHumain],
+    parent: AbstractHuman,
+    children: list[AbstractHuman],
     expected_names_in_family_tree: list[str],
 ) -> None:
     """Test if all family mambers are in family tree."""

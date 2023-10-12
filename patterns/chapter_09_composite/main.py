@@ -1,6 +1,6 @@
 """Main entrypoint for the Composite pattern example."""
 
-from .humains import Child, Humain
+from .humans import Child, Human
 
 
 def test_pattern_example() -> None:
@@ -9,9 +9,9 @@ def test_pattern_example() -> None:
     Family tree is displayed correctly with Humain as composite and Child as
     leaf.
     """
-    grandfather = Humain('Grandfather')
+    grandfather = Human('Grandfather')
 
-    mother = Humain('Mother')
+    mother = Human('Mother')
     taunt = Child('Taunt')
     uncle = Child('Uncle')
     grandfather.add_child(mother)
@@ -19,8 +19,8 @@ def test_pattern_example() -> None:
     grandfather.add_child(uncle)
 
     me = Child('Me')
-    brother = Humain('Brother')
-    sister = Humain('Sister')
+    brother = Human('Brother')
+    sister = Human('Sister')
     mother.add_child(me)
     mother.add_child(brother)
     mother.add_child(sister)

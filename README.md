@@ -63,6 +63,29 @@ The home theater facade class allows 'watch movie' and 'end movie' methods that 
 
 The abstract caffeine beverage class has 2 implementations: Tea and Coffee. It contains a few abstract methods which are implemented their proper way in the child classes.
 
+11. [x] [Iterator](patterns/chapter_09_iterator/)
+
+**Iterator is a behavioral design pattern that lets you traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.).**
+
+There is an abstract menu class and two implementations where menu items are implemented as different type structures. The waitress could iterate over menu items on both menus in the same manner.
+
+12. [x] [Composite](patterns/chapter_09_composite/)
+
+**Composite is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.**
+
+There is an abstract human class and two implementations: Human and Child. When we print the Human instance's family tree, it prints it recursively.
+
+13. [x] [State](patterns/chapter_10_state/)
+
+**State is a behavioral design pattern that lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.**
+
+The gumball machine changes its state according to performed by user actions.
+
+14. [x] [Proxy](patterns/chapter_11_proxy/)
+
+**Proxy is a structural design pattern that lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.**
+
+When the user asks to display the remote image, the proxy displays the fake image until the real remote image is downloaded.
 
 ## Run
 
