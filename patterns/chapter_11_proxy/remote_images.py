@@ -50,12 +50,20 @@ class Proxy(AbstractRemoteImage):
         """Initialize Proxy."""
         self._remote_image = remote_image
 
+    async def display_fake(self):
+        """Display fake image."""
+        while not self._remote_image.is_downloaded:
+            print('Displaying the fake image.')
+            await asyncio.sleep(REFRESH_RATE)
+
     async def display(self):
         """Display the image.
 
         Displays the fake image while the real image is downloading.
         """
-        while not self._remote_image.is_downloaded:
-            print('Displaying the fake image.')
-            await asyncio.sleep(REFRESH_RATE)
+        task1 = asyncio.create_task(self._remote_image.download())
+        task2 = asyncio.create_task(self.display_fake())
+
+        await task1
+        await task2
         await self._remote_image.display()

@@ -13,11 +13,7 @@ async def run_pattern_example() -> None:
     remote_image = RemoteImage()
     proxy = Proxy(remote_image)
 
-    task1 = asyncio.create_task(remote_image.download())
-    task2 = asyncio.create_task(proxy.display())
-
-    await task1
-    await task2
+    await proxy.display()
 
 
 if __name__ == "__main__":
